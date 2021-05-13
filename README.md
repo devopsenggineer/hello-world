@@ -98,7 +98,7 @@ Steps to trigger CI-CD maven job and deploy artifact into tomcat server.
 
      ls -ltrs /opt/apache-tomcat-8.5.65/webapps/ 
 
-17. Now make any changes in this repo and commit code changes, jenkins will trigger CI-CD process.
+17. Now if you make any changes in this repo and commit code changes, jenkins will trigger CI-CD process.
     
   
       
