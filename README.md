@@ -74,7 +74,7 @@ Steps to trigger CI-CD maven job and deploy artifact into tomcat server.
    # To stop tomcat server
      ./shutdown.sh
 
-6.  Now, once you start tomcat serve, hit your browser at following address http://tomcat-server-ip:8080/manager/html to access tomcat server manager page and  when promted for credentials, give username and password provided in  tomcat-user.xml file like Username: tomcat and password: s3cret
+6.  Now, once you start tomcat server, hit your browser at following address http://tomcat-server-ip:8080/manager/html to access tomcat server manager page and  when promted for credentials, give username and password provided in  tomcat-user.xml file like Username: tomcat and password: s3cret
 
 7. Now in jenkins server go to Manage-Jenkins-->Manage-Credentials-->click on Global --> Add credentials and give user credentials (username: deployer & password: deployer) and give creds some ID like 'tomcat-ID' for deploying war into tomcat server added in tomcat-users.xml file.
 
