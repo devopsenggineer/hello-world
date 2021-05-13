@@ -37,12 +37,12 @@ Steps to trigger CI-CD maven job and deploy artifact into tomcat server.
      <!--  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
          allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->   
   
-  nano apache-tomcat-8.5.65/webapps/manager/META-INF/context.xml and comment these  below lines 
+   nano apache-tomcat-8.5.65/webapps/manager/META-INF/context.xml and comment these  below lines 
      
      <!--  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
          allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->           
 
-  nano apache-tomcat-8.5.65/conf/tomcat-users.xml  and add these below lines just before </tomcat-users> tag.
+   nano apache-tomcat-8.5.65/conf/tomcat-users.xml  and add these below lines just before </tomcat-users> tag.
       
        <role rolename="manager-gui"/>
        <role rolename="manager-script"/>
@@ -65,7 +65,7 @@ Steps to trigger CI-CD maven job and deploy artifact into tomcat server.
    # To stop tomcat server
      ./shutdown.sh
 
-6.  Now  hit your browser at following address http://<tomcat-server-ip>:8080/manager/html to access tomcat server manager page and  when promted for credentials, give username and password provided in  tomcat-user.xml file like Username: tomcat and password: s3cret
+6.  Now, once you start tomcat serve, hit your browser at following address http://tomcat-server-ip:8080/manager/html to access tomcat server manager page and  when promted for credentials, give username and password provided in  tomcat-user.xml file like Username: tomcat and password: s3cret
 
 7. Now in jenkins server go to Manage-Jenkins-->Manage-Credentials-->click on Global --> Add credentials and give user credentials (username: deployer & password: deployer) and give creds some ID like 'tomcat-ID' for deploying war into tomcat server added in tomcat-users.xml file.
 
@@ -73,7 +73,7 @@ Steps to trigger CI-CD maven job and deploy artifact into tomcat server.
 
 9. On configure page, under 'Source Code' tab/section select 'Git' and add this repo url 'https://github.com/devopsenggineer/hello-world.git', 
 
-10. Move to 'Build-Triggers' tab/section, select poll scm and give appropriate scheduling like (*/10 * * * *) to check for code changes in git repo every 10 minutes 
+10. Move to 'Build-Triggers' tab/section, select 'Poll SCM' and give appropriate scheduling like (*/10 * * * *) to check for code changes in this git repo every 10 minutes 
 
 11. Move to 'Build' tab/section  & under "Goals and options" field add these values 'clean install package'.
 
@@ -85,11 +85,11 @@ Steps to trigger CI-CD maven job and deploy artifact into tomcat server.
 
 15. Now build the job, once is succeeded hit this url "http://<tomcat-server-ip>:8080/webapp/" to see changes deployed to tomcat server.
 
-16.  Also, tomcat server can be checked to  view new files added at "/opt/apache-tomcat-8.5.65/webapps/" location using below command
+16. Also, tomcat server can be checked to  view new files added at "/opt/apache-tomcat-8.5.65/webapps/" location using below command
 
      ls -ltrs /opt/apache-tomcat-8.5.65/webapps/ 
 
-17.  Now make any changes in this repo and commit code changes, jenkins will trigger CI-CD process.
+17. Now make any changes in this repo and commit code changes, jenkins will trigger CI-CD process.
     
   
       
