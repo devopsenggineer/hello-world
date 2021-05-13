@@ -47,7 +47,7 @@ Steps to trigger CI-CD maven job and deploy artifact into tomcat server.
          allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />   
    ```         
 
-   nano apache-tomcat-8.5.65/conf/tomcat-users.xml  and add these below lines just before </tomcat-users> tag.
+   nano apache-tomcat-8.5.65/conf/tomcat-users.xml  and add these below lines just before "</tomcat-users>" tag.
    
    ```
       
