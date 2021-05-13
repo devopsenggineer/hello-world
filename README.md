@@ -33,16 +33,23 @@ Steps to trigger CI-CD maven job and deploy artifact into tomcat server.
    tar -xvzf apache-tomcat-8.5.65.tar.gz
    
    nano apache-tomcat-8.5.65/webapps/host-manager/META-INF/context.xml and comment these  below lines 
+   
+   ```
      
-     <!--  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
-         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->   
+       <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />  
+   ```
   
    nano apache-tomcat-8.5.65/webapps/manager/META-INF/context.xml and comment these  below lines 
      
-     <!--  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
-         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->           
+   ```
+       <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />   
+   ```         
 
    nano apache-tomcat-8.5.65/conf/tomcat-users.xml  and add these below lines just before </tomcat-users> tag.
+   
+   ```
       
        <role rolename="manager-gui"/>
        <role rolename="manager-script"/>
@@ -52,6 +59,8 @@ Steps to trigger CI-CD maven job and deploy artifact into tomcat server.
        <user username="admin" password="admin" roles="manager-gui, manager-script, manager-jmx, manager-status"/>
        <user username="deployer" password="deployer" roles="manager-script"/>
        <user username="tomcat" password="s3cret" roles="manager-gui"/>
+       
+   ```       
 
 5. Now start your tomcat server by running below commands
   
