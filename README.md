@@ -2,7 +2,7 @@
 
 Simple Maven Project Jenkins CICD DEMO
 
-Steps to trigger CI-CD maven job and deploy artifact into tomcat server.
+Steps to trigger CI-CD maven job and deploy artifact into tomcat server using Jenkins "Deploy to container Plugin" plugin.
 
 1. Install jenkins server on any platform like say docker
 
